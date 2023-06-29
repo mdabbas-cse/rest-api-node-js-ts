@@ -1,3 +1,4 @@
+import { isAuthentication } from "../middlewares/authentication";
 import { getAllUsers } from "../controllers/user";
 import { Router } from "express";
 

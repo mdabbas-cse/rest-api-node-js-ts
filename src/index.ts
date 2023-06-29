@@ -6,7 +6,7 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import registerRoutes from './routers';
-import registerMiddlewares from './middlewares';
+import registerMiddleware from './middlewares';
 
 const port = process.env.PORT || 3000
 const url = process.env.MONGODB_URI 
@@ -21,12 +21,12 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(compression())
 
+// middleware registration
+// registerMiddleware(app)
 
 // routes registration
 registerRoutes(app)
 
-// middleware registration
-registerMiddlewares(app)
 
 // connect to mongodb
 mongoose.connect(url)

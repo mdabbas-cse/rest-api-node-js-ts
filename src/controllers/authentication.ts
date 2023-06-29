@@ -48,7 +48,6 @@ export const login = async (req: Request, res: Response) => {
             .select("+authentication.salt +authentication.password")
             .exec()
 
-
         if (!user) {
             return res.status(400).json({ message: 'User does not exist' })
         }
@@ -76,7 +75,7 @@ export const login = async (req: Request, res: Response) => {
                 domain: process.env.DOMAIN,
                 path: '/',
             })
-
+            console.log('cookie',process.env.COOKIE)
         return res.status(200).json(user).end()
 
     } catch (error) {
